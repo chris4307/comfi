@@ -2,6 +2,23 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>PLKPlaidLinkConfiguration</key>
+	<dict>
+		<key>clientName</key>
+		<string>comfi</string>
+		<key>env</key>
+		<string>sandbox</string>
+		<key>key</key>
+		<string></string>
+		<key>product</key>
+		<array>
+			<string>auth</string>
+			<string>transactions</string>
+			<string>balance</string>
+			<string>income</string>
+			<string>assets</string>
+		</array>
+	</dict>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>org-appextension-feature-password-management</string>
