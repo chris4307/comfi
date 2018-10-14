@@ -13,4 +13,5 @@ class User {
     var fbid: String!
     var current_balance: Double!
     var transactions: [Transaction]!
+    var profileURL: String?
 }

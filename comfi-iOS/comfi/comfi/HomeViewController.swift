@@ -90,6 +90,13 @@ extension HomeViewController:  UITableViewDataSource, UITableViewDelegate {
         cell.date.text = GV.me.transactions[indexPath.row].date
         cell.amount.text = "\(GV.me.transactions[indexPath.row].amount)"
         
+        /*
+        if let url = GV.friends[0].profileURL {
+            let request = URLRequest(url: URL(string: url)!)
+            self.webView.load(request)
+            print("\n\nweb loaded")
+        }
+        */
         return cell
     }
     

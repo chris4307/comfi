@@ -14,9 +14,7 @@ class FBLoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
+
         // Do any additional setup after loading the view.
         
         configureLoginButton()
@@ -59,18 +57,38 @@ extension FBLoginViewController: FBSDKLoginButtonDelegate {
                     let params = ["fields": "id, first_name, last_name, name, email, picture"]
                     let request = FBSDKGraphRequest.init(graphPath: "me/friends", parameters: params, httpMethod: "GET")
                     
-                    // Make a call using request
+                    // Make a call using request to get friend data
                     let _ = request?.start(completionHandler: { (connection, result, error) in
+                        
                         print("Friends Result: \(String(describing: result))")
+                        if let result = result as? [String: Any] {
+                            for friend in result["data"] as! [Any] {
+                                if let friend = friend as? [String: Any] {
+                                    var fbFriend = User()
+                                    fbFriend.first_name = friend["first_name"] as? String
+                                    fbFriend.last_name = friend["last_name"] as? String
+                                    fbFriend.fbid = friend["id"] as? String
+                                    if let picture = friend["picture"] as? [String: Any] {
+                                        if let pictureData = picture["data"] as? [String: Any] {
+                                            fbFriend.profileURL = pictureData["url"] as? String
+                                        }
+                                    }
+                                    
+                                    GV.friends.append(fbFriend)
+                                }
+                                
+                            }
+                        }
+                        
+                        // present plaid login view controller
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let controller = storyboard.instantiateViewController(withIdentifier: "PlaidViewController") as! ViewController
+                        //self.present(controller, animated: true, completion: nil)
+                        
+                        let homePage = storyboard.instantiateViewController(withIdentifier: "TabBarController")
+                        self.present(homePage, animated: true, completion: nil)
                     })
                 }
-                
-                // present plaid login view controller
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let controller = storyboard.instantiateViewController(withIdentifier: "PlaidViewController") as! ViewController
-                self.present(controller, animated: true, completion: nil)
-                
-                
             }
             
         } else {
