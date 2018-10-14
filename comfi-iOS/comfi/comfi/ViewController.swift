@@ -149,10 +149,13 @@ extension ViewController : PLKPlaidLinkViewDelegate
             
             dispatchGroup.enter()
             NetworkManager.sharedInstance.obtainGroupScreenData(public_token: GV.Plaid.public_token, completionHandler: { (success) in
+                
+                
+                
                 dispatchGroup.leave()
             })
             
-            DispatchQueue.main.async {
+            dispatchGroup.notify(queue: .main) {
                 self.handleSuccessWithToken(publicToken, metadata: metadata)
             }
 

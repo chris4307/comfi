@@ -28,12 +28,9 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let balance = 14.50
-        YourFinances.text = "Your Finances"
-        CurrentBalance.text = "Current Balance: " + balance.description
         
-        configureTableView()
         
+        /*
         var myUser = User()
         var transA = Transaction()
         transA.amount = 10
@@ -51,15 +48,36 @@ class HomeViewController: UIViewController {
         myUser.current_balance = 112.34
         myUser.transactions = myTransactions
         GV.me = myUser
-        
-        configurePieChart()
-        
-        print("the home data might not exist but it is as follows: ")
-        print(GV.HomeScreen.pieChartDict)
-        print(GV.me.current_balance!)
+        */
         
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let balance = GV.me.current_balance
+        YourFinances.text = "Your Finances"
+        CurrentBalance.text = "Current Balance: \(balance!)"
+        
+        configureTableView()
+        
+        configurePieChart()
+        
+        print(GV.me.current_balance)
+        print("the home data might not exist but it is as follows: ")
+        print(GV.HomeScreen.pieChartDict)
+        print(GV.me.current_balance)
+        
+        var labels: [String] = []
+        var data: [Double] = []
+        
+        for (key, value) in GV.HomeScreen.pieChartDict {
+            labels.append(key as! String)
+            data.append(value["amount"] as! Double)
+        }
+        
+        updateChartData(forPieChart: pieChart, labels: labels, data: data)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -90,7 +108,7 @@ extension HomeViewController:  UITableViewDataSource, UITableViewDelegate {
         
         cell.name.text = GV.me.transactions[indexPath.row].name
         cell.date.text = GV.me.transactions[indexPath.row].date
-        cell.amount.text = "\(GV.me.transactions[indexPath.row].amount)"
+        cell.amount.text = "\(GV.me.transactions[indexPath.row].amount!)"
         
         /*
         if let url = GV.friends[0].profileURL {
@@ -117,7 +135,7 @@ extension HomeViewController: ChartViewDelegate {
         // generate chart data entries
         let track = ["Income", "Expense", "Wallet", "Bank"]
         let money = [650, 456.13, 78.67, 856.52]
-        updateChartData(forPieChart: pieChart, labels: track, data: money)
+        //updateChartData(forPieChart: pieChart, labels: track, data: money)
     }
     
     func updateChartData(forPieChart chart: PieChartView, labels: [String], data: [Double])  {
@@ -153,10 +171,10 @@ extension HomeViewController: ChartViewDelegate {
         
         
         let d = Description()
-        d.text = "iOSCharts.io"
+        d.text = ""
         chart.chartDescription = d
         chart.centerText = "Pie Chart"
-        chart.holeRadiusPercent = 0.2
+        chart.holeRadiusPercent = 0
         chart.transparentCircleColor = UIColor.clear
     }
     

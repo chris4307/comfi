@@ -25,6 +25,12 @@ class GroupViewController: UIViewController {
         configurePieChart()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("Group Screen will appear")
+        print(GV.GroupScreen.categories)
+    }
+    
     func configureTableView() {
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CompetitorTableViewCell", bundle: nil), forCellReuseIdentifier: "CompetitorTableViewCell")

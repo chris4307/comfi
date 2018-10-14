@@ -164,7 +164,7 @@
             </objects>
             <point key="canvasLocation" x="567" y="135"/>
         </scene>
-        <!--Item-->
+        <!--Home-->
         <scene sceneID="md9-RZ-gAR">
             <objects>
                 <viewController id="Wcb-R8-Zvk" customClass="HomeViewController" customModule="comfi" customModuleProvider="target" sceneMemberID="viewController">
@@ -192,7 +192,7 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gum-8w-eFP">
                                 <rect key="frame" x="0.0" y="97" width="375" height="250"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="zjC-TU-2hC"/>
                                 </constraints>
@@ -221,7 +221,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="id7-P3-6Gt"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="yMw-24-kmF"/>
+                    <tabBarItem key="tabBarItem" title="Home" id="yMw-24-kmF"/>
                     <connections>
                         <outlet property="CurrentBalance" destination="dp1-Tv-SDN" id="SFl-Fb-xkU"/>
                         <outlet property="TransactionTable" destination="5Hk-YI-Nc1" id="43G-p9-rf3"/>
@@ -253,7 +253,7 @@
             </objects>
             <point key="canvasLocation" x="1338" y="135"/>
         </scene>
-        <!--Item-->
+        <!--Friends-->
         <scene sceneID="yZ3-My-7M3">
             <objects>
                 <viewController id="eyH-pK-tLZ" customClass="GroupViewController" customModule="comfi" customModuleProvider="target" sceneMemberID="viewController">
@@ -294,7 +294,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="v0r-hE-xEU"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="H5H-uz-Qni"/>
+                    <tabBarItem key="tabBarItem" title="Friends" id="H5H-uz-Qni"/>
                     <connections>
                         <outlet property="chartView" destination="KbW-19-P6m" id="bRc-Mm-rCI"/>
                         <outlet property="groupNameLabel" destination="pcE-Y3-yej" id="8xc-e4-Sb7"/>

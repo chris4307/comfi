@@ -10,5 +10,5 @@ import Foundation
 class Transaction {
     var name: String!
     var date: String!
-    var amount: Double!
+    var amount: String!
 }

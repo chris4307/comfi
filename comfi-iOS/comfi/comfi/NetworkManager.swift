@@ -105,7 +105,7 @@ class NetworkManager {
     }
     
     func obtainHomeScreenData(completionHandler: @escaping (_ success: Bool) -> Void) {
-        
+        print("\n\n\nhome screen data fetch")
         let headers = [
             "Content-Type": "application/x-www-form-urlencoded",
             "Authorization": "Basic aGFja2R1a2Vpc2F3ZXNvbWU6TG04UnNwNSskfm0qTX1E",
@@ -132,8 +132,17 @@ class NetworkManager {
                     let jsonData = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
                     
                     if let dictionary = jsonData as? [String: Any] {
-                        GV.me.current_balance = dictionary["account_balance"] as? Double
-                        GV.me.monthly_saving = dictionary["monthly_saving"] as? Double
+                        print(dictionary)
+                        dump(dictionary)
+                       /*
+                        if let val = dictionary["account_balance"] {
+                            print("looking for account balance \(val)")
+                            
+                            GV.me.current_balance = Double(s)
+                        }
+ */
+                        GV.me.current_balance = dictionary["account_balance"]! as? String
+                        GV.me.monthly_saving = dictionary["monthly_saving"]! as? String
                         
                         if let pieChartData = dictionary["pie_graph"] as? [[String: Any]] {
                             for slice in pieChartData {
@@ -154,7 +163,7 @@ class NetworkManager {
                             for eachTransaction in transactionData {
                                 var transaction = Transaction()
                                 transaction.name = eachTransaction["name"] as? String
-                                transaction.amount = eachTransaction["amount"] as? Double
+                                transaction.amount = eachTransaction["amount"]! as? String
                                 transaction.date = eachTransaction["date"] as? String
                                 GV.me.transactions.append(transaction)
                             }

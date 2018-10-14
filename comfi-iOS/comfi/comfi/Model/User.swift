@@ -11,8 +11,8 @@ class User {
     var first_name: String!
     var last_name: String!
     var fbid: String!
-    var current_balance: Double!
-    var monthly_saving: Double!
+    var current_balance: String!
+    var monthly_saving: String!
     var transactions: [Transaction] = []
     var profileURL: String?
 }
