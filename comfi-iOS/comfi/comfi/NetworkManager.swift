@@ -223,13 +223,18 @@ class NetworkManager {
                         
                         
                         if let categoryPercents = dictionary["categoryPercents"] as? [String: Any] {
+                            print("the length of categories is \(GV.GroupScreen.categories)")
                             
                             for category in GV.GroupScreen.categories {
                                 var categoryDataDict: [[String: Any]] = []
                                 if let categoryData = categoryPercents[category] as? [Any] {
+                                    print("datadict has 0")
                                     for categoryCompetitorData in categoryData {
+                                        print("datadict has 1")
                                         if let categoryCompetitorData = categoryCompetitorData as? [String: Any]  {
                                             categoryDataDict.append(["fbid": categoryCompetitorData["fbid"] as! String, "value": categoryCompetitorData["percent"] as! Double])
+                                           
+                                            print("datadict has \(categoryDataDict.count)")
                                         }
                                     }
                                 }

@@ -11,6 +11,9 @@ import Charts
 class GroupViewController: UIViewController {
     
     var pieChart = PieChartView()
+    
+    var selectedCategory = ""
+    
     @IBOutlet var chartView: UIView!
     
     @IBOutlet var tableView: UITableView!
@@ -26,6 +29,9 @@ class GroupViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // default value for selectedCategory
+        selectedCategory = GV.GroupScreen.categories[0]
         
         configureTableView()
         configurePieChart()
@@ -43,6 +49,8 @@ class GroupViewController: UIViewController {
     func configureTableView() {
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CompetitorTableViewCell", bundle: nil), forCellReuseIdentifier: "CompetitorTableViewCell")
+        
+        tableView.rowHeight = 52
         
         // remove empty cells
         tableView.tableFooterView = UIView()
@@ -62,26 +70,45 @@ extension GroupViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("gonna add \(GV.friends.count)")
-        return GV.friends.count
+        if GV.GroupScreen.categories.contains(selectedCategory) {
+            print(selectedCategory)
+            // TODO:
+            return GV.friends.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CompetitorTableViewCell", for: indexPath) as! CompetitorTableViewCell
-        
-        cell.nameLabel.text = GV.friends[indexPath.row].first_name
-        
-        cell.valueLabel.text = "\(20)"
-        
-        
-        if let url = GV.friends[indexPath.row].profileURL {
-            let request = URLRequest(url: URL(string: url)!)
-            cell.webView.load(request)
 
+        if false {//!GV.GroupScreen.categories.contains(selectedCategory) {
+            return UITableViewCell()
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CompetitorTableViewCell", for: indexPath) as! CompetitorTableViewCell
+            print(indexPath.row)
+            print(GV.GroupScreen.competitorData[selectedCategory]?.count)
+            let cellFBID = GV.GroupScreen.competitorData[selectedCategory]?[indexPath.row]["fbid"] as! String
+            let val = String(format: "%\(0.4)f", (GV.GroupScreen.competitorData[selectedCategory]?[indexPath.row]["value"] as! Double) * 100)
+            print("cell at \(indexPath.row) has fbid \(cellFBID)")
+            
+            print(GV.friends.count)
+            
+            for friend in GV.friends {
+                if (friend.fbid == cellFBID) {
+                    cell.nameLabel.text = friend.first_name + " " + friend.last_name
+                    print(cell.nameLabel.text)
+                    if let url = friend.profileURL {
+                        let request = URLRequest(url: URL(string: url)!)
+                        cell.webView.load(request)
+                    }
+                    
+                }
+            }
+
+            cell.valueLabel.text = "\(val)"
+            
+            return cell
         }
-
-        return cell
     }
 }
 
@@ -182,9 +209,16 @@ extension GroupViewController: ChartViewDelegate {
     }
     
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-        print("\n\nclicked")
-        print(entry.description)
-        print(entry.x)
+    
+        for (key, value) in GV.GroupScreen.pieChartDict {
+            if (value == entry.y) {
+                selectedCategory = key
+                break;
+            }
+        }
         
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }

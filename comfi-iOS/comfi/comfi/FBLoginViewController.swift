@@ -81,6 +81,12 @@ extension FBLoginViewController: FBSDKLoginButtonDelegate {
                                 
                             }
                         }
+                        // TODO: fix hard code
+                        GV.me.first_name = "Brian"
+                        GV.me.last_name = "Li"
+                        GV.me.profileURL = "https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/36694714_2134574763484635_1962183778004631552_o.jpg?_nc_cat=104&_nc_ht=scontent-iad3-1.xx&oh=d3702f11cebd3f06dc585c54c61a3bd1&oe=5C5D49AD"
+                        // add yourself to the data
+                        GV.friends.append(GV.me)
                         
                         NetworkManager.sharedInstance.testServerConnection()
                         
