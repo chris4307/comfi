@@ -8,6 +8,8 @@
 		<string>comfi</string>
 		<key>env</key>
 		<string>sandbox</string>
+		<key>selectAccount</key>
+		<true/>
 		<key>key</key>
 		<string></string>
 		<key>product</key>

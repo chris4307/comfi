@@ -56,6 +56,7 @@ class ViewController: UIViewController {
     }
     
     func handleSuccessWithToken(_ publicToken: String, metadata: [String : Any]?) {
+        print("\n\n\n\nthis should be working now")
         presentAlertViewWithTitle("Success", message: "token: \(publicToken)\nmetadata: \(metadata ?? [:])")
     }
     
@@ -126,6 +127,9 @@ extension ViewController : PLKPlaidLinkViewDelegate
         dismiss(animated: true) {
             // Handle success, e.g. by storing publicToken with your service
             NSLog("Successfully linked account!\npublicToken: \(publicToken)\nmetadata: \(metadata ?? [:])")
+            
+            var account_id = metadata?["account_id"]
+
             self.handleSuccessWithToken(publicToken, metadata: metadata)
         }
     }
