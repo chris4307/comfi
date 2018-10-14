@@ -21,19 +21,31 @@ class GroupViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        configureTableView()
-        configurePieChart()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("Group Screen will appear")
-        print(GV.GroupScreen.categories)
+        
+        configureTableView()
+        configurePieChart()
+        
+        var labels: [String] = []
+        var data: [Double] = []
+        for(key, value) in GV.GroupScreen.pieChartDict {
+            labels.append(key)
+            data.append(value)
+        }
+        
+        updateChartData(forPieChart: pieChart, labels: labels, data: data)
     }
     
     func configureTableView() {
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CompetitorTableViewCell", bundle: nil), forCellReuseIdentifier: "CompetitorTableViewCell")
+        
+        // remove empty cells
+        tableView.tableFooterView = UIView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -77,13 +89,14 @@ extension GroupViewController: ChartViewDelegate {
     
     func configurePieChart() {
         self.setup(pieChartView: pieChart)
+        pieChart.delegate = self
         pieChart.frame = self.chartView.bounds
         self.chartView.addSubview(pieChart)
         
         // generate chart data entries
         let track = ["Income", "Expense", "Wallet", "Bank"]
         let money = [650, 456.13, 78.67, 856.52]
-        updateChartData(forPieChart: pieChart, labels: track, data: money)
+        //updateChartData(forPieChart: pieChart, labels: track, data: money)
     }
     
     func updateChartData(forPieChart chart: PieChartView, labels: [String], data: [Double])  {
@@ -99,7 +112,7 @@ extension GroupViewController: ChartViewDelegate {
             }
         }
         
-        let set = PieChartDataSet( values: entries, label: "Pie Chart")
+        let set = PieChartDataSet(values: entries, label: "Pie Chart")
         // this is custom extension method. Download the code for more details.
         /*
          var colors: [UIColor] = []
@@ -119,10 +132,10 @@ extension GroupViewController: ChartViewDelegate {
         
         
         let d = Description()
-        d.text = "iOSCharts.io"
+        d.text = ""
         chart.chartDescription = d
         chart.centerText = "Pie Chart"
-        chart.holeRadiusPercent = 0.2
+        chart.holeRadiusPercent = 0
         chart.transparentCircleColor = UIColor.clear
     }
     
@@ -166,5 +179,12 @@ extension GroupViewController: ChartViewDelegate {
         l.yEntrySpace = 0
         l.yOffset = 0
         //        chartView.legend = l
+    }
+    
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        print("\n\nclicked")
+        print(entry.description)
+        print(entry.x)
+        
     }
 }

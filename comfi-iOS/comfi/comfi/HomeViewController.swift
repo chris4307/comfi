@@ -87,6 +87,9 @@ class HomeViewController: UIViewController {
         TransactionTable.dataSource = self
         TransactionTable.register(UINib(nibName: "TransactionEntryCell", bundle: nil), forCellReuseIdentifier: "TransactionEntryCell")
         TransactionTable.rowHeight = 72
+        
+        // remove empty cells
+        TransactionTable.tableFooterView = UIView()
     }
     
     
