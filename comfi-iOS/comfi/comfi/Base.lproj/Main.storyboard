@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4m0-Ma-085">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4m0-Ma-085">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -62,7 +62,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y3K-te-NPq">
-                                <rect key="frame" x="164" y="45" width="46" height="30"/>
+                                <rect key="frame" x="164.5" y="45" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <segue destination="p05-tB-vnZ" kind="show" id="oE6-kH-5Wg"/>
@@ -166,7 +166,7 @@
         <!--Item-->
         <scene sceneID="md9-RZ-gAR">
             <objects>
-                <viewController id="Wcb-R8-Zvk" customClass="ViewController" customModule="ChrisAndJustinsPages" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Wcb-R8-Zvk" customClass="HomeViewController" customModule="comfi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rV4-9R-oJy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -183,17 +183,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="     Transations:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aY1-86-ftq">
-                                <rect key="frame" x="0.0" y="402" width="375" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="     Transations:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aY1-86-ftq">
+                                <rect key="frame" x="0.0" y="371" width="375" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5Hk-YI-Nc1">
-                                <rect key="frame" x="1" y="387" width="374" height="211"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gum-8w-eFP">
                                 <rect key="frame" x="0.0" y="97" width="375" height="250"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -201,30 +196,37 @@
                                     <constraint firstAttribute="height" constant="250" id="zjC-TU-2hC"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5Hk-YI-Nc1">
+                                <rect key="frame" x="0.0" y="407" width="375" height="211"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="aY1-86-ftq" firstAttribute="top" secondItem="id7-P3-6Gt" secondAttribute="top" constant="338" id="7VA-os-OHa"/>
+                            <constraint firstItem="aY1-86-ftq" firstAttribute="leading" secondItem="id7-P3-6Gt" secondAttribute="leading" id="23A-W6-YcC"/>
+                            <constraint firstItem="5Hk-YI-Nc1" firstAttribute="centerX" secondItem="id7-P3-6Gt" secondAttribute="centerX" id="4df-Lz-dFW"/>
+                            <constraint firstItem="id7-P3-6Gt" firstAttribute="bottom" secondItem="5Hk-YI-Nc1" secondAttribute="bottom" id="8qS-M4-7Kn"/>
                             <constraint firstItem="p9k-lA-Uzc" firstAttribute="centerX" secondItem="id7-P3-6Gt" secondAttribute="centerX" id="DdK-KY-dtC"/>
-                            <constraint firstItem="dp1-Tv-SDN" firstAttribute="top" secondItem="id7-P3-6Gt" secondAttribute="top" constant="48" id="XMZ-PZ-zhX"/>
+                            <constraint firstItem="dp1-Tv-SDN" firstAttribute="centerX" secondItem="id7-P3-6Gt" secondAttribute="centerX" id="OQV-o9-ixZ"/>
                             <constraint firstItem="gum-8w-eFP" firstAttribute="centerX" secondItem="id7-P3-6Gt" secondAttribute="centerX" id="YeR-H2-ybF"/>
                             <constraint firstItem="p9k-lA-Uzc" firstAttribute="top" secondItem="id7-P3-6Gt" secondAttribute="top" constant="19" id="bX2-RR-hi6"/>
-                            <constraint firstItem="dp1-Tv-SDN" firstAttribute="top" secondItem="id7-P3-6Gt" secondAttribute="top" constant="115" id="beI-gi-q8J"/>
-                            <constraint firstItem="id7-P3-6Gt" firstAttribute="bottom" secondItem="aY1-86-ftq" secondAttribute="bottom" constant="244" id="bvt-dL-39g"/>
                             <constraint firstItem="gum-8w-eFP" firstAttribute="top" secondItem="id7-P3-6Gt" secondAttribute="top" constant="77" id="co1-ot-XZL"/>
-                            <constraint firstItem="aY1-86-ftq" firstAttribute="top" secondItem="id7-P3-6Gt" secondAttribute="top" constant="382" id="gNU-T1-7XK"/>
-                            <constraint firstItem="dp1-Tv-SDN" firstAttribute="centerX" secondItem="id7-P3-6Gt" secondAttribute="centerX" id="kuy-8D-2e3"/>
-                            <constraint firstItem="dp1-Tv-SDN" firstAttribute="width" secondItem="rV4-9R-oJy" secondAttribute="width" id="lMO-O8-Ntl"/>
+                            <constraint firstItem="5Hk-YI-Nc1" firstAttribute="top" secondItem="aY1-86-ftq" secondAttribute="bottom" constant="15.5" id="csW-hn-7C4"/>
+                            <constraint firstItem="aY1-86-ftq" firstAttribute="width" secondItem="rV4-9R-oJy" secondAttribute="width" id="iJs-8g-KUR"/>
+                            <constraint firstItem="dp1-Tv-SDN" firstAttribute="top" secondItem="p9k-lA-Uzc" secondAttribute="bottom" constant="8" id="iNy-o0-IS0"/>
+                            <constraint firstItem="aY1-86-ftq" firstAttribute="top" secondItem="gum-8w-eFP" secondAttribute="bottom" constant="24" id="jSE-ho-vDd"/>
                             <constraint firstItem="gum-8w-eFP" firstAttribute="width" secondItem="rV4-9R-oJy" secondAttribute="width" id="ydn-6L-OXA"/>
+                            <constraint firstItem="5Hk-YI-Nc1" firstAttribute="width" secondItem="rV4-9R-oJy" secondAttribute="width" id="zYD-j7-gYt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="id7-P3-6Gt"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="yMw-24-kmF"/>
                     <connections>
-                        <outlet property="CurrentBalance" destination="dp1-Tv-SDN" id="fqc-k7-26u"/>
-                        <outlet property="TransactionTable" destination="5Hk-YI-Nc1" id="Fi0-Nt-dSq"/>
-                        <outlet property="TransactionsLabel" destination="aY1-86-ftq" id="FAn-O4-eSv"/>
-                        <outlet property="YourFinances" destination="p9k-lA-Uzc" id="3vQ-vw-mHs"/>
+                        <outlet property="CurrentBalance" destination="dp1-Tv-SDN" id="SFl-Fb-xkU"/>
+                        <outlet property="TransactionTable" destination="5Hk-YI-Nc1" id="43G-p9-rf3"/>
+                        <outlet property="TransactionsLabel" destination="aY1-86-ftq" id="L7f-BG-z2Q"/>
+                        <outlet property="YourFinances" destination="p9k-lA-Uzc" id="Dy8-Y2-qVa"/>
+                        <outlet property="chartView" destination="gum-8w-eFP" id="Vez-j5-Zny"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pSw-J5-JTz" sceneMemberID="firstResponder"/>
@@ -237,6 +239,7 @@
                 <tabBarController storyboardIdentifier="TabViewController" automaticallyAdjustsScrollViewInsets="NO" id="p05-tB-vnZ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SY0-3W-Rye">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

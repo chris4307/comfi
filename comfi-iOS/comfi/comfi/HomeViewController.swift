@@ -11,14 +11,16 @@ import Charts
 
 class HomeViewController: UIViewController {
 
+    var pieChart = PieChartView()
     
+    @IBOutlet var chartView: UIView!
     
-    @IBOutlet weak var YourFinances: UILabel!
-    @IBOutlet weak var CurrentBalance: UILabel!
-    @IBOutlet weak var TransactionsLabel: UILabel!
-    @IBOutlet weak var TransactionTable: UITableView!
+    @IBOutlet var YourFinances: UILabel!
+    @IBOutlet var TransactionsLabel: UILabel!
+    @IBOutlet var CurrentBalance: UILabel!
+    
+    @IBOutlet var TransactionTable: UITableView!
     //var balance: Float!
-    @IBOutlet weak var TabHomeLB: UITabBar!
     
     
 
@@ -64,7 +66,7 @@ class HomeViewController: UIViewController {
     func configureTableView() {
         TransactionTable.dataSource = self
         TransactionTable.register(UINib(nibName: "TransactionEntryCell", bundle: nil), forCellReuseIdentifier: "TransactionEntryCell")
-        TransactionTable.rowHeight = 88
+        TransactionTable.rowHeight = 72
     }
     
     
@@ -92,7 +94,7 @@ extension HomeViewController:  UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 88
+        return 72
     }
 }
 
@@ -100,7 +102,7 @@ extension HomeViewController: ChartViewDelegate {
     
     func configurePieChart() {
         self.setup(pieChartView: pieChart)
-        pieChart.frame = self.chartView.frame
+        pieChart.frame = self.chartView.bounds
         self.chartView.addSubview(pieChart)
         
         // generate chart data entries
