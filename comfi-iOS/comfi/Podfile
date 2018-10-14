@@ -7,6 +7,8 @@ target 'comfi' do
 
   # Pods for comfi
   pod 'Plaid'
+  pod 'FBSDKLoginKit'
+  pod 'Charts'
 
   target 'comfiTests' do
     inherit! :search_paths

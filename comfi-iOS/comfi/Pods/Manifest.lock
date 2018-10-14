@@ -1,16 +1,39 @@
 PODS:
+  - Bolts (1.9.0):
+    - Bolts/AppLinks (= 1.9.0)
+    - Bolts/Tasks (= 1.9.0)
+  - Bolts/AppLinks (1.9.0):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.9.0)
+  - Charts (3.1.1):
+    - Charts/Core (= 3.1.1)
+  - Charts/Core (3.1.1)
+  - FBSDKCoreKit (4.36.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.36.0):
+    - FBSDKCoreKit
   - Plaid (1.1.11)
 
 DEPENDENCIES:
+  - Charts
+  - FBSDKLoginKit
   - Plaid
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Bolts
+    - Charts
+    - FBSDKCoreKit
+    - FBSDKLoginKit
     - Plaid
 
 SPEC CHECKSUMS:
+  Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  Charts: 90a4d61da0f6e06684c591e3bcab11940fe61736
+  FBSDKCoreKit: 3b8e6570eedb443f9fc4af196a7bf39f18e3a3d8
+  FBSDKLoginKit: 8bccb6064708ab2f4251a7fc4e3b6d8d00ad91ba
   Plaid: c4e4b8bffd6db8d516c84e4cdac8ec5de12f8a01
 
-PODFILE CHECKSUM: 632e291fd4932e2d2b72434c5176a940921f3c42
+PODFILE CHECKSUM: 702480309a7249de4ebd47e28b01cc3627914156
 
 COCOAPODS: 1.5.3

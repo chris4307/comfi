@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uT1-83-biS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ewH-Qq-MFB">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,10 +9,60 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Graph Tester View Controller-->
+        <scene sceneID="hZg-LB-jgc">
+            <objects>
+                <viewController id="ewH-Qq-MFB" customClass="GraphTesterViewController" customModule="comfi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="F1D-60-lTF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="TOx-je-JRA"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="egU-lD-RbF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1262" y="135"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="yUg-Zc-E0o">
+            <objects>
+                <viewController id="4m0-Ma-085" customClass="FBLoginViewController" customModule="comfi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xDp-7e-iSH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RwI-Ex-75b" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="164" y="318" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="comfi." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KdM-58-sS9">
+                                <rect key="frame" x="147" y="202" width="88" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" red="0.30890390276908875" green="0.68171733617782593" blue="0.94905155897140503" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96866661310195923" green="0.97644311189651489" blue="0.98430746793746948" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="RwI-Ex-75b" firstAttribute="centerX" secondItem="crM-Ec-9oZ" secondAttribute="centerX" id="JgJ-4E-Sio"/>
+                            <constraint firstItem="RwI-Ex-75b" firstAttribute="centerY" secondItem="crM-Ec-9oZ" secondAttribute="centerY" id="lax-gc-L6H"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="crM-Ec-9oZ"/>
+                    </view>
+                    <connections>
+                        <outlet property="loginButton" destination="RwI-Ex-75b" id="hOS-7x-EOs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uCe-Ui-4ut" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-458" y="136"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="ZlZ-wK-e7A">
             <objects>
-                <viewController id="uT1-83-biS" customClass="ViewController" customModule="comfi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlaidViewController" id="uT1-83-biS" customClass="ViewController" customModule="comfi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ff3-34-Rby"/>
                         <viewControllerLayoutGuide type="bottom" id="ZeX-IA-EyU"/>
