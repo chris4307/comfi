@@ -49,6 +49,8 @@ extension FBLoginViewController: FBSDKLoginButtonDelegate {
     
             FBSDKAccessToken.setCurrent(token)
             
+            GV.me.fbid = token.userID
+            
             if result.declinedPermissions.count == 0 {
                 print(token.userID!)
                 
@@ -80,13 +82,15 @@ extension FBLoginViewController: FBSDKLoginButtonDelegate {
                             }
                         }
                         
+                        NetworkManager.sharedInstance.testServerConnection()
+                        
                         // present plaid login view controller
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
                         let controller = storyboard.instantiateViewController(withIdentifier: "PlaidViewController") as! ViewController
-                        //self.present(controller, animated: true, completion: nil)
+                        self.present(controller, animated: true, completion: nil)
                         
                         let homePage = storyboard.instantiateViewController(withIdentifier: "TabBarController")
-                        self.present(homePage, animated: true, completion: nil)
+                        //self.present(homePage, animated: true, completion: nil)
                     })
                 }
             }

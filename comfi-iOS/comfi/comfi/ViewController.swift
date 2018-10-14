@@ -57,7 +57,11 @@ class ViewController: UIViewController {
     
     func handleSuccessWithToken(_ publicToken: String, metadata: [String : Any]?) {
         print("\n\n\n\nthis should be working now")
-        presentAlertViewWithTitle("Success", message: "token: \(publicToken)\nmetadata: \(metadata ?? [:])")
+        //presentAlertViewWithTitle("Success", message: "token: \(publicToken)\nmetadata: \(metadata ?? [:])")
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController")
+        self.present(tabBarController, animated: true, completion: nil)
     }
     
     func handleError(_ error: Error, metadata: [String : Any]?) {
@@ -127,10 +131,31 @@ extension ViewController : PLKPlaidLinkViewDelegate
         dismiss(animated: true) {
             // Handle success, e.g. by storing publicToken with your service
             NSLog("Successfully linked account!\npublicToken: \(publicToken)\nmetadata: \(metadata ?? [:])")
+            GV.Plaid.account_id = metadata?["account_id"] as! String
+            GV.Plaid.public_token = publicToken
             
-            var account_id = metadata?["account_id"]
+            // dispatch group
+            let dispatchGroup = DispatchGroup()
+            
+            dispatchGroup.enter()
+            NetworkManager.sharedInstance.obtainPlaidData(fbid: GV.me.fbid, public_token: GV.Plaid.public_token, account_id: GV.Plaid.account_id, completionHandler: { (success) in
+                dispatchGroup.leave()
+            })
+            
+            dispatchGroup.enter()
+            NetworkManager.sharedInstance.obtainHomeScreenData(completionHandler: { (success) in
+                dispatchGroup.leave()
+            })
+            
+            dispatchGroup.enter()
+            NetworkManager.sharedInstance.obtainGroupScreenData(public_token: GV.Plaid.public_token, completionHandler: { (success) in
+                dispatchGroup.leave()
+            })
+            
+            DispatchQueue.main.async {
+                self.handleSuccessWithToken(publicToken, metadata: metadata)
+            }
 
-            self.handleSuccessWithToken(publicToken, metadata: metadata)
         }
     }
     // <!-- SMARTDOWN_DELEGATE_SUCCESS -->

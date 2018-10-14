@@ -52,9 +52,11 @@ class HomeViewController: UIViewController {
         myUser.transactions = myTransactions
         GV.me = myUser
         
-        
-        
         configurePieChart()
+        
+        print("the home data might not exist but it is as follows: ")
+        print(GV.HomeScreen.pieChartDict)
+        print(GV.me.current_balance!)
         
     }
 

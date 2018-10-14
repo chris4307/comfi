@@ -20,6 +20,7 @@
 		C743E03B2173361F00EBF005 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C743E03A2173361F00EBF005 /* GroupViewController.swift */; };
 		C743E03E217336AC00EBF005 /* CompetitorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C743E03C217336AC00EBF005 /* CompetitorTableViewCell.swift */; };
 		C743E03F217336AC00EBF005 /* CompetitorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C743E03D217336AC00EBF005 /* CompetitorTableViewCell.xib */; };
+		C743E04121737A5900EBF005 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C743E04021737A5900EBF005 /* NetworkManager.swift */; };
 		C75EF27D2172AF15004461D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75EF27C2172AF15004461D9 /* AppDelegate.swift */; };
 		C75EF27F2172AF15004461D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75EF27E2172AF15004461D9 /* ViewController.swift */; };
 		C75EF2822172AF15004461D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C75EF2802172AF15004461D9 /* Main.storyboard */; };
@@ -68,6 +69,7 @@
 		C743E03A2173361F00EBF005 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		C743E03C217336AC00EBF005 /* CompetitorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitorTableViewCell.swift; sourceTree = "<group>"; };
 		C743E03D217336AC00EBF005 /* CompetitorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompetitorTableViewCell.xib; sourceTree = "<group>"; };
+		C743E04021737A5900EBF005 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C75EF2792172AF15004461D9 /* comfi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = comfi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C75EF27C2172AF15004461D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C75EF27E2172AF15004461D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				C75EF27C2172AF15004461D9 /* AppDelegate.swift */,
 				C75EF27E2172AF15004461D9 /* ViewController.swift */,
 				C712AE1E2172DB7F004FE646 /* FBLoginViewController.swift */,
+				C743E04021737A5900EBF005 /* NetworkManager.swift */,
 				C75EF2802172AF15004461D9 /* Main.storyboard */,
 				C743E03A2173361F00EBF005 /* GroupViewController.swift */,
 				C743E03C217336AC00EBF005 /* CompetitorTableViewCell.swift */,
@@ -440,6 +443,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C743E04121737A5900EBF005 /* NetworkManager.swift in Sources */,
 				C712AE282172F7BC004FE646 /* Transaction.swift in Sources */,
 				C712AE262172F4E2004FE646 /* GraphTesterViewController.swift in Sources */,
 				C712AE222172F44A004FE646 /* GV.swift in Sources */,

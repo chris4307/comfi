@@ -2,6 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>PLKPlaidLinkConfiguration</key>
 	<dict>
 		<key>clientName</key>
@@ -11,7 +16,7 @@
 		<key>selectAccount</key>
 		<true/>
 		<key>key</key>
-		<string></string>
+		<string>329ea43c935a8777288a6b9390637a</string>
 		<key>product</key>
 		<array>
 			<string>auth</string>

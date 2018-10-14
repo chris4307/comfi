@@ -50,31 +50,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RwI-Ex-75b" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="164" y="318" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RwI-Ex-75b" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="133.5" y="490" width="108" height="30"/>
+                                <state key="normal" title="Facebook Login"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="comfi." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KdM-58-sS9">
-                                <rect key="frame" x="147" y="202" width="88" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                <color key="textColor" red="0.30890390276908875" green="0.68171733617782593" blue="0.94905155897140503" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y3K-te-NPq">
-                                <rect key="frame" x="164.5" y="45" width="46" height="30"/>
+                                <rect key="frame" x="164.5" y="46" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <segue destination="p05-tB-vnZ" kind="show" id="oE6-kH-5Wg"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="comfi." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KdM-58-sS9">
+                                <rect key="frame" x="109" y="148" width="157" height="50"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="40"/>
+                                <color key="textColor" red="0.30890390276908875" green="0.68171733617782593" blue="0.94905155897140503" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.96866661310195923" green="0.97644311189651489" blue="0.98430746793746948" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="Y3K-te-NPq" firstAttribute="centerX" secondItem="crM-Ec-9oZ" secondAttribute="centerX" id="J0F-gY-6K4"/>
-                            <constraint firstItem="RwI-Ex-75b" firstAttribute="centerX" secondItem="crM-Ec-9oZ" secondAttribute="centerX" id="JgJ-4E-Sio"/>
-                            <constraint firstItem="RwI-Ex-75b" firstAttribute="centerY" secondItem="crM-Ec-9oZ" secondAttribute="centerY" id="lax-gc-L6H"/>
-                            <constraint firstItem="Y3K-te-NPq" firstAttribute="top" secondItem="crM-Ec-9oZ" secondAttribute="top" constant="25" id="xYr-IR-fr0"/>
+                            <constraint firstItem="crM-Ec-9oZ" firstAttribute="bottom" secondItem="RwI-Ex-75b" secondAttribute="bottom" constant="147" id="3TI-fh-DVQ"/>
+                            <constraint firstItem="KdM-58-sS9" firstAttribute="centerX" secondItem="crM-Ec-9oZ" secondAttribute="centerX" id="M4b-gE-nwf"/>
+                            <constraint firstItem="Y3K-te-NPq" firstAttribute="top" secondItem="crM-Ec-9oZ" secondAttribute="top" constant="26" id="OX8-4A-NKw"/>
+                            <constraint firstItem="KdM-58-sS9" firstAttribute="top" secondItem="crM-Ec-9oZ" secondAttribute="top" constant="128" id="bgK-q7-rnG"/>
+                            <constraint firstItem="RwI-Ex-75b" firstAttribute="centerX" secondItem="crM-Ec-9oZ" secondAttribute="centerX" id="fI1-0c-dsr"/>
+                            <constraint firstItem="Y3K-te-NPq" firstAttribute="centerX" secondItem="crM-Ec-9oZ" secondAttribute="centerX" id="rr1-9H-QgW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="crM-Ec-9oZ"/>
                     </view>
@@ -267,9 +268,15 @@
                                     <constraint firstAttribute="height" constant="315" id="vRy-cc-ZuI"/>
                                 </constraints>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Group Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcE-Y3-yej">
-                                <rect key="frame" x="99" y="61" width="164" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KbW-19-P6m">
+                                <rect key="frame" x="0.0" y="90" width="375" height="205"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="205" id="xeE-Pu-J1Z"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Group Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcE-Y3-yej">
+                                <rect key="frame" x="105" y="61" width="164" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -277,14 +284,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="KbW-19-P6m" firstAttribute="top" secondItem="pcE-Y3-yej" secondAttribute="bottom" constant="8" id="585-kS-koN"/>
                             <constraint firstItem="v0r-hE-xEU" firstAttribute="bottom" secondItem="MpF-wZ-EQ8" secondAttribute="bottom" id="9Ul-nO-4OS"/>
+                            <constraint firstItem="KbW-19-P6m" firstAttribute="width" secondItem="tA9-EW-gfM" secondAttribute="width" id="BgN-YJ-VrS"/>
                             <constraint firstItem="MpF-wZ-EQ8" firstAttribute="centerX" secondItem="v0r-hE-xEU" secondAttribute="centerX" id="DOJ-gP-11B"/>
+                            <constraint firstItem="pcE-Y3-yej" firstAttribute="top" secondItem="v0r-hE-xEU" secondAttribute="top" constant="41" id="Hol-92-PX4"/>
                             <constraint firstItem="MpF-wZ-EQ8" firstAttribute="width" secondItem="tA9-EW-gfM" secondAttribute="width" id="MfL-qT-sCD"/>
+                            <constraint firstItem="KbW-19-P6m" firstAttribute="centerX" secondItem="v0r-hE-xEU" secondAttribute="centerX" id="x98-9m-HiV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="v0r-hE-xEU"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="H5H-uz-Qni"/>
                     <connections>
+                        <outlet property="chartView" destination="KbW-19-P6m" id="bRc-Mm-rCI"/>
                         <outlet property="groupNameLabel" destination="pcE-Y3-yej" id="8xc-e4-Sb7"/>
                         <outlet property="tableView" destination="MpF-wZ-EQ8" id="ydL-r7-czA"/>
                     </connections>
