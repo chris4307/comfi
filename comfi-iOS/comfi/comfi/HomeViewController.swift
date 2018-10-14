@@ -1,32 +1,102 @@
 //
-//  GraphTesterViewController.swift
-//  comfi
+//  HomeViewController.swift
+//  ChrisAndJustinsPages
 //
-//  Created by Brian Li on 10/13/18.
+//  Created by Justin Kim on 10/13/18.
+//  Copyright © 2018 CJ LLC. All rights reserved.
 //
 
 import UIKit
 import Charts
 
-class GraphTesterViewController: UIViewController {
+class HomeViewController: UIViewController {
 
-    @IBOutlet var chartView: UIView!
-    var pieChart = PieChartView()
+    
+    
+    @IBOutlet weak var YourFinances: UILabel!
+    @IBOutlet weak var CurrentBalance: UILabel!
+    @IBOutlet weak var TransactionsLabel: UILabel!
+    @IBOutlet weak var TransactionTable: UITableView!
+    //var balance: Float!
+    @IBOutlet weak var TabHomeLB: UITabBar!
+    
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view, typically from a nib.
+        let balance = 14.50
+        YourFinances.text = "Your Finances"
+        CurrentBalance.text = "Current Balance: " + balance.description
+        
+        configureTableView()
+        
+        var myUser = User()
+        var transA = Transaction()
+        transA.amount = 10
+        transA.date = "10/10/10"
+        transA.name = "chipotle"
+        var transB = Transaction()
+        transB.amount = 10
+        transB.date = "11/11/11"
+        transB.name = "mcdonalds"
+        var myTransactions = [transA, transB]
+        
+        myUser.first_name = "justin"
+        myUser.last_name = "last_name"
+        myUser.fbid = "12313123123213123"
+        myUser.current_balance = 112.34
+        myUser.transactions = myTransactions
+        GV.me = myUser
+        
+        
+        
         configurePieChart()
         
-        
-        
     }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func configureTableView() {
+        TransactionTable.dataSource = self
+        TransactionTable.register(UINib(nibName: "TransactionEntryCell", bundle: nil), forCellReuseIdentifier: "TransactionEntryCell")
+        TransactionTable.rowHeight = 88
+    }
+    
     
     
 }
 
-extension GraphTesterViewController: ChartViewDelegate {
+extension HomeViewController:  UITableViewDataSource, UITableViewDelegate {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return GV.me.transactions.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionEntryCell", for: indexPath) as! TransactionEntryCell
+        
+        cell.name.text = GV.me.transactions[indexPath.row].name
+        cell.date.text = GV.me.transactions[indexPath.row].date
+        cell.amount.text = "\(GV.me.transactions[indexPath.row].amount)"
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 88
+    }
+}
+
+extension HomeViewController: ChartViewDelegate {
     
     func configurePieChart() {
         self.setup(pieChartView: pieChart)
@@ -121,3 +191,4 @@ extension GraphTesterViewController: ChartViewDelegate {
         //        chartView.legend = l
     }
 }
+

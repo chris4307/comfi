@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1EB374D8217318CB00FAE9C4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB374D7217318CB00FAE9C4 /* HomeViewController.swift */; };
+		1EB374DB217318F800FAE9C4 /* TransactionEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB374D9217318F800FAE9C4 /* TransactionEntryCell.swift */; };
+		1EB374DC217318F800FAE9C4 /* TransactionEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EB374DA217318F800FAE9C4 /* TransactionEntryCell.xib */; };
 		3EBB2DD25BEDBCF3B73079F8 /* Pods_comfiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C68658F486F624B6CA44F0 /* Pods_comfiUITests.framework */; };
 		899D7D84DCD9153B19C846C2 /* Pods_comfiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8827AFB2D9A10084932C4FCF /* Pods_comfiTests.framework */; };
 		C712AE1F2172DB7F004FE646 /* FBLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C712AE1E2172DB7F004FE646 /* FBLoginViewController.swift */; };
@@ -44,6 +47,9 @@
 /* Begin PBXFileReference section */
 		18C19E3B0444C5B68DC53C36 /* Pods-comfiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-comfiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-comfiTests/Pods-comfiTests.release.xcconfig"; sourceTree = "<group>"; };
 		192AA0B54578E681FDA5FA21 /* Pods-comfi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-comfi.release.xcconfig"; path = "Pods/Target Support Files/Pods-comfi/Pods-comfi.release.xcconfig"; sourceTree = "<group>"; };
+		1EB374D7217318CB00FAE9C4 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		1EB374D9217318F800FAE9C4 /* TransactionEntryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionEntryCell.swift; sourceTree = "<group>"; };
+		1EB374DA217318F800FAE9C4 /* TransactionEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionEntryCell.xib; sourceTree = "<group>"; };
 		66C68658F486F624B6CA44F0 /* Pods_comfiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_comfiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E84C9B1A2D911FCE18CC262 /* Pods-comfiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-comfiUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-comfiUITests/Pods-comfiUITests.release.xcconfig"; sourceTree = "<group>"; };
 		70EE3020542E8CAF0ABE8B70 /* Pods-comfiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-comfiUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-comfiUITests/Pods-comfiUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -162,6 +168,9 @@
 				C75EF27E2172AF15004461D9 /* ViewController.swift */,
 				C712AE1E2172DB7F004FE646 /* FBLoginViewController.swift */,
 				C75EF2802172AF15004461D9 /* Main.storyboard */,
+				1EB374D7217318CB00FAE9C4 /* HomeViewController.swift */,
+				1EB374D9217318F800FAE9C4 /* TransactionEntryCell.swift */,
+				1EB374DA217318F800FAE9C4 /* TransactionEntryCell.xib */,
 				C712AE252172F4E2004FE646 /* GraphTesterViewController.swift */,
 				C75EF2832172AF17004461D9 /* Assets.xcassets */,
 				C75EF2852172AF17004461D9 /* LaunchScreen.storyboard */,
@@ -297,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C75EF2872172AF17004461D9 /* LaunchScreen.storyboard in Resources */,
+				1EB374DC217318F800FAE9C4 /* TransactionEntryCell.xib in Resources */,
 				C75EF2842172AF17004461D9 /* Assets.xcassets in Resources */,
 				C75EF2822172AF15004461D9 /* Main.storyboard in Resources */,
 			);
@@ -423,7 +433,9 @@
 				C712AE282172F7BC004FE646 /* Transaction.swift in Sources */,
 				C712AE262172F4E2004FE646 /* GraphTesterViewController.swift in Sources */,
 				C712AE222172F44A004FE646 /* GV.swift in Sources */,
+				1EB374D8217318CB00FAE9C4 /* HomeViewController.swift in Sources */,
 				C75EF27F2172AF15004461D9 /* ViewController.swift in Sources */,
+				1EB374DB217318F800FAE9C4 /* TransactionEntryCell.swift in Sources */,
 				C75EF27D2172AF15004461D9 /* AppDelegate.swift in Sources */,
 				C712AE242172F46C004FE646 /* User.swift in Sources */,
 				C712AE1F2172DB7F004FE646 /* FBLoginViewController.swift in Sources */,
@@ -605,6 +617,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V4AH655C9C;
 				INFOPLIST_FILE = comfi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -624,6 +637,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V4AH655C9C;
 				INFOPLIST_FILE = comfi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
