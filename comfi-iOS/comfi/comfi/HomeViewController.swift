@@ -113,7 +113,18 @@ extension HomeViewController:  UITableViewDataSource, UITableViewDelegate {
         cell.date.text = GV.me.transactions[indexPath.row].date
         cell.amount.text = "\(GV.me.transactions[indexPath.row].amount!)"
         
-        //if (cell.amount.text.charAt())
+        //let amountFloat = Float(cell.amount)
+        let numberFormatter = NumberFormatter()
+        let number = numberFormatter.number(from: cell.amount.text!)
+        let amountFloat = number?.floatValue
+        
+        if ((amountFloat?.isLess(than: 0))!){
+            cell.amount.textColor = .red
+        } else {
+            let darkGreen = UIColor(rgb: 0x216C2A)
+            cell.amount.textColor = darkGreen
+            
+        }
         
         /*
         if let url = GV.friends[0].profileURL {
@@ -226,3 +237,20 @@ extension HomeViewController: ChartViewDelegate {
     }
 }
 
+extension UIColor {
+    convenience init(red: Int, green: Int, blue: Int) {
+        assert(red >= 0 && red <= 255, "Invalid red component")
+        assert(green >= 0 && green <= 255, "Invalid green component")
+        assert(blue >= 0 && blue <= 255, "Invalid blue component")
+        
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+    }
+    
+    convenience init(rgb: Int) {
+        self.init(
+            red: (rgb >> 16) & 0xFF,
+            green: (rgb >> 8) & 0xFF,
+            blue: rgb & 0xFF
+        )
+    }
+}
