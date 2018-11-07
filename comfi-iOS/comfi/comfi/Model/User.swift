@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class User {
     var first_name: String!
@@ -15,4 +16,5 @@ class User {
     var monthly_saving: String!
     var transactions: [Transaction] = []
     var profileURL: String?
+    var profilePhoto: UIImage?
 }

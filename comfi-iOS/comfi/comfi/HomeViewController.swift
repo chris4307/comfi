@@ -15,14 +15,9 @@ class HomeViewController: UIViewController {
     
     @IBOutlet var chartView: UIView!
     
-    @IBOutlet var YourFinances: UILabel!
     @IBOutlet var TransactionsLabel: UILabel!
-    @IBOutlet var CurrentBalance: UILabel!
     
-    @IBOutlet var TransactionTable: UITableView!
-    //var balance: Float!
-    
-    
+    @IBOutlet var tableView: UITableView!
 
     
     override func viewDidLoad() {
@@ -55,18 +50,9 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let balance = GV.me.current_balance
-        YourFinances.text = "Your Finances"
-        CurrentBalance.text = "Current Balance: \(balance!)"
-        
         configureTableView()
         
         configurePieChart()
-        
-        print(GV.me.current_balance)
-        print("the home data might not exist but it is as follows: ")
-        print(GV.HomeScreen.pieChartDict)
-        print(GV.me.current_balance)
         
         var labels: [String] = []
         var data: [Double] = []
@@ -78,18 +64,20 @@ class HomeViewController: UIViewController {
         
         updateChartData(forPieChart: pieChart, labels: labels, data: data)
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func configureTableView() {
-        TransactionTable.dataSource = self
-        TransactionTable.register(UINib(nibName: "TransactionEntryCell", bundle: nil), forCellReuseIdentifier: "TransactionEntryCell")
-        TransactionTable.rowHeight = 72
+        tableView.dataSource = self
+        tableView.delegate = self
+    
+        tableView.register(UINib(nibName: "TransactionEntryCell", bundle: nil), forCellReuseIdentifier: "TransactionEntryCell")
         
         // remove empty cells
-        TransactionTable.tableFooterView = UIView()
+        tableView.tableFooterView = UIView()
     }
     
     
@@ -103,36 +91,38 @@ extension HomeViewController:  UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return GV.me.transactions.count
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionEntryCell", for: indexPath) as! TransactionEntryCell
-        
-        cell.name.text = GV.me.transactions[indexPath.row].name
-        cell.date.text = GV.me.transactions[indexPath.row].date
-        cell.amount.text = "\(GV.me.transactions[indexPath.row].amount!)"
-        
-        //let amountFloat = Float(cell.amount)
-        let numberFormatter = NumberFormatter()
-        let number = numberFormatter.number(from: cell.amount.text!)
-        let amountFloat = number?.floatValue
-        
-        if ((amountFloat?.isLess(than: 0))!){
-            cell.amount.textColor = .red
-        } else {
-            let darkGreen = UIColor(rgb: 0x216C2A)
-            cell.amount.textColor = darkGreen
+        cell.selectionStyle = .none
+
+        switch indexPath.row {
+        case 0:
+            cell.name.text = "Current Balance"
+
+            let date = NSDate()
+            let calendar = NSCalendar.current
+            let day = calendar.component(.day, from: date as Date)
+            let month = calendar.component(.month, from: date as Date)
+            let year = calendar.component(.year, from: date as Date)
             
+            cell.date.text = "as of \(month)/\(day)/\(year)"
+            cell.amount.text = "$\(GV.me.current_balance!)"
+        case 1:
+            cell.name.text = "Predicted Spending"
+            cell.date.text = "of next month's income"
+            cell.amount.text = GV.HomeScreen.predictedSpending
+        case 2:
+            cell.name.text = "Predicted Savings"
+            cell.date.text = "of next month's income"
+            cell.amount.text = GV.HomeScreen.predictedSavings
+            
+        default:
+           return cell
         }
         
-        /*
-        if let url = GV.friends[0].profileURL {
-            let request = URLRequest(url: URL(string: url)!)
-            self.webView.load(request)
-            print("\n\nweb loaded")
-        }
-        */
         return cell
     }
     

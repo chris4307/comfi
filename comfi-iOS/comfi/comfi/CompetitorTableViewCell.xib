@@ -19,19 +19,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="71.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ft7-IN-2aH">
-                        <rect key="frame" x="16" y="11" width="50" height="50"/>
-                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="50" id="Brc-t6-1YG"/>
-                            <constraint firstAttribute="width" constant="50" id="iuA-t2-TPE"/>
-                            <constraint firstAttribute="width" secondItem="Ft7-IN-2aH" secondAttribute="height" multiplier="1:1" id="qvc-O7-MdK"/>
-                        </constraints>
-                        <wkWebViewConfiguration key="configuration">
-                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                            <wkPreferences key="preferences"/>
-                        </wkWebViewConfiguration>
-                    </wkWebView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UcY-XJ-fNi">
                         <rect key="frame" x="74" y="25.5" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -39,26 +26,33 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="028-FW-Dfq">
-                        <rect key="frame" x="262" y="25" width="42" height="21"/>
+                        <rect key="frame" x="262" y="25.5" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f35-qz-MLv">
+                        <rect key="frame" x="16" y="11" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="SxG-Pr-JM6"/>
+                            <constraint firstAttribute="height" constant="50" id="lyy-Pf-xfC"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Ft7-IN-2aH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="2B5-Fw-odg"/>
-                    <constraint firstItem="Ft7-IN-2aH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="3Ms-xp-qO8"/>
+                    <constraint firstItem="UcY-XJ-fNi" firstAttribute="leading" secondItem="f35-qz-MLv" secondAttribute="trailing" constant="8" id="7IB-1i-Wre"/>
                     <constraint firstItem="UcY-XJ-fNi" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Mus-vB-4ZV"/>
                     <constraint firstAttribute="trailing" secondItem="028-FW-Dfq" secondAttribute="trailing" constant="16" id="NNf-Mi-ddQ"/>
+                    <constraint firstItem="f35-qz-MLv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="T5u-mf-AlE"/>
                     <constraint firstItem="028-FW-Dfq" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="pVf-2l-TQR"/>
-                    <constraint firstItem="UcY-XJ-fNi" firstAttribute="leading" secondItem="Ft7-IN-2aH" secondAttribute="trailing" constant="8" id="vSd-pl-ymB"/>
+                    <constraint firstItem="f35-qz-MLv" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="uG2-vh-zBh"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="nameLabel" destination="UcY-XJ-fNi" id="ZOs-R2-A3n"/>
+                <outlet property="profilePhotoImageView" destination="f35-qz-MLv" id="0q9-aw-DDe"/>
                 <outlet property="valueLabel" destination="028-FW-Dfq" id="vpi-cu-GHT"/>
-                <outlet property="webView" destination="Ft7-IN-2aH" id="M2Q-cQ-X0m"/>
             </connections>
             <point key="canvasLocation" x="137.59999999999999" y="130.43478260869566"/>
         </tableViewCell>

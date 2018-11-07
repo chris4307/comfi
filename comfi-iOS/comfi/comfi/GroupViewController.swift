@@ -15,6 +15,7 @@ class GroupViewController: UIViewController {
     var selectedCategory = ""
     
     @IBOutlet var chartView: UIView!
+    @IBOutlet var categoryLabel: UILabel!
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var groupNameLabel: UILabel!
@@ -32,6 +33,7 @@ class GroupViewController: UIViewController {
         
         // default value for selectedCategory
         selectedCategory = GV.GroupScreen.categories[0]
+        categoryLabel.text = selectedCategory
         
         configureTableView()
         configurePieChart()
@@ -88,25 +90,19 @@ extension GroupViewController: UITableViewDataSource {
             print(indexPath.row)
             print(GV.GroupScreen.competitorData[selectedCategory]?.count)
             let cellFBID = GV.GroupScreen.competitorData[selectedCategory]?[indexPath.row]["fbid"] as! String
-            let val = String(format: "%\(0.4)f", (GV.GroupScreen.competitorData[selectedCategory]?[indexPath.row]["value"] as! Double) * 100)
-            print("cell at \(indexPath.row) has fbid \(cellFBID)")
-            
-            print(GV.friends.count)
+            let val = String(format: "%\(0.2)f", (GV.GroupScreen.competitorData[selectedCategory]?[indexPath.row]["value"] as! Double) * 100)
             
             for friend in GV.friends {
                 if (friend.fbid == cellFBID) {
                     cell.nameLabel.text = friend.first_name + " " + friend.last_name
                     print(cell.nameLabel.text)
-                    if let url = friend.profileURL {
-                        let request = URLRequest(url: URL(string: url)!)
-                        cell.webView.load(request)
-                    }
-                    
+                    cell.profilePhotoImageView.image = friend.profilePhoto
                 }
             }
 
-            cell.valueLabel.text = "\(val)"
+            cell.valueLabel.text = "\(val)%"
             
+            cell.selectionStyle = .none
             return cell
         }
     }
@@ -213,6 +209,7 @@ extension GroupViewController: ChartViewDelegate {
         for (key, value) in GV.GroupScreen.pieChartDict {
             if (value == entry.y) {
                 selectedCategory = key
+                categoryLabel.text = selectedCategory
                 break;
             }
         }

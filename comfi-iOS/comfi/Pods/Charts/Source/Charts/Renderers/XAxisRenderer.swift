@@ -180,8 +180,8 @@ open class XAxisRenderer: AxisRendererBase
         paraStyle.alignment = .center
         
         let labelAttrs: [NSAttributedString.Key : Any] = [NSAttributedString.Key.font: xAxis.labelFont,
-                                                          NSAttributedString.Key.foregroundColor: xAxis.labelTextColor,
-                                                          NSAttributedString.Key.paragraphStyle: paraStyle]
+            NSAttributedString.Key.foregroundColor: xAxis.labelTextColor,
+            NSAttributedString.Key.paragraphStyle: paraStyle]
         let labelRotationAngleRadians = xAxis.labelRotationAngle.DEG2RAD
         
         let centeringEnabled = xAxis.isCenterAxisLabelsEnabled

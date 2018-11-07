@@ -10,7 +10,7 @@ import WebKit
 
 class CompetitorTableViewCell: UITableViewCell {
 
-    @IBOutlet var webView: WKWebView!
+    @IBOutlet var profilePhotoImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var valueLabel: UILabel!
     

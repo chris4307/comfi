@@ -17,6 +17,8 @@
 		C712AE242172F46C004FE646 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C712AE232172F46C004FE646 /* User.swift */; };
 		C712AE262172F4E2004FE646 /* GraphTesterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C712AE252172F4E2004FE646 /* GraphTesterViewController.swift */; };
 		C712AE282172F7BC004FE646 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C712AE272172F7BC004FE646 /* Transaction.swift */; };
+		C743926D219283FD00DB677E /* LearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C743926C219283FD00DB677E /* LearnViewController.swift */; };
+		C743926F2192AD8D00DB677E /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C743926E2192AD8D00DB677E /* TransactionsViewController.swift */; };
 		C743E03B2173361F00EBF005 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C743E03A2173361F00EBF005 /* GroupViewController.swift */; };
 		C743E03E217336AC00EBF005 /* CompetitorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C743E03C217336AC00EBF005 /* CompetitorTableViewCell.swift */; };
 		C743E03F217336AC00EBF005 /* CompetitorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C743E03D217336AC00EBF005 /* CompetitorTableViewCell.xib */; };
@@ -66,6 +68,8 @@
 		C712AE232172F46C004FE646 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C712AE252172F4E2004FE646 /* GraphTesterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphTesterViewController.swift; sourceTree = "<group>"; };
 		C712AE272172F7BC004FE646 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		C743926C219283FD00DB677E /* LearnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnViewController.swift; sourceTree = "<group>"; };
+		C743926E2192AD8D00DB677E /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 		C743E03A2173361F00EBF005 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		C743E03C217336AC00EBF005 /* CompetitorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitorTableViewCell.swift; sourceTree = "<group>"; };
 		C743E03D217336AC00EBF005 /* CompetitorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompetitorTableViewCell.xib; sourceTree = "<group>"; };
@@ -177,6 +181,8 @@
 				C712AE1E2172DB7F004FE646 /* FBLoginViewController.swift */,
 				C743E04021737A5900EBF005 /* NetworkManager.swift */,
 				C75EF2802172AF15004461D9 /* Main.storyboard */,
+				C743926E2192AD8D00DB677E /* TransactionsViewController.swift */,
+				C743926C219283FD00DB677E /* LearnViewController.swift */,
 				C743E03A2173361F00EBF005 /* GroupViewController.swift */,
 				C743E03C217336AC00EBF005 /* CompetitorTableViewCell.swift */,
 				C743E03D217336AC00EBF005 /* CompetitorTableViewCell.xib */,
@@ -443,11 +449,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C743926F2192AD8D00DB677E /* TransactionsViewController.swift in Sources */,
 				C743E04121737A5900EBF005 /* NetworkManager.swift in Sources */,
 				C712AE282172F7BC004FE646 /* Transaction.swift in Sources */,
 				C712AE262172F4E2004FE646 /* GraphTesterViewController.swift in Sources */,
 				C712AE222172F44A004FE646 /* GV.swift in Sources */,
 				1EB374D8217318CB00FAE9C4 /* HomeViewController.swift in Sources */,
+				C743926D219283FD00DB677E /* LearnViewController.swift in Sources */,
 				C743E03B2173361F00EBF005 /* GroupViewController.swift in Sources */,
 				C75EF27F2172AF15004461D9 /* ViewController.swift in Sources */,
 				C743E03E217336AC00EBF005 /* CompetitorTableViewCell.swift in Sources */,

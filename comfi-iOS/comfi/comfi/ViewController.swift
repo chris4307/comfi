@@ -150,7 +150,12 @@ extension ViewController : PLKPlaidLinkViewDelegate
             dispatchGroup.enter()
             NetworkManager.sharedInstance.obtainGroupScreenData(public_token: GV.Plaid.public_token, completionHandler: { (success) in
                 
-                
+                dispatchGroup.leave()
+            })
+            
+            
+            dispatchGroup.enter()
+            NetworkManager.sharedInstance.obtainStrengthsAndWeaknesses(completionHandler: { (success) in
                 
                 dispatchGroup.leave()
             })
